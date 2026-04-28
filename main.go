@@ -126,7 +126,7 @@ func main() {
 
 	err = util.StopOldInstance(port)
 	if err != nil {
-		panic(err)
+		logs.Warning("Failed to stop old instance (this is normal on Windows): %v", err)
 	}
 
 	go ldap.StartLdapServer()

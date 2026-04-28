@@ -1,0 +1,31 @@
+http:
+  routers:
+    casdoor:
+      rule: "Host(`localhost`)"
+      entryPoints:
+        - web
+      service: casdoor-service
+      middlewares:
+        - cors-headers
+
+  services:
+    casdoor-service:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:8080"
+
+  middlewares:
+    cors-headers:
+      headers:
+        accessControlAllowMethods:
+          - "GET"
+          - "POST"
+          - "PUT"
+          - "DELETE"
+          - "OPTIONS"
+        accessControlAllowHeaders:
+          - "*"
+        accessControlAllowOriginList:
+          - "*"
+        accessControlMaxAge: 100
+        addVaryHeader: true

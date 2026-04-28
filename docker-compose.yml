@@ -1,27 +1,47 @@
-version: '3.1'
+version: '3.8'
+
 services:
   casdoor:
-    restart: always
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      target: STANDARD
-    entrypoint: /bin/sh -c './server --createDatabase=true'
+    build: .
     ports:
       - "8000:8000"
-    depends_on:
-      - db
     environment:
-      RUNNING_IN_DOCKER: "true"
-    volumes:
-      - ./conf:/conf/
-  db:
+      - DRIVER_NAME=mysql
+      - DATA_SOURCE_NAME=root:123456@tcp(mysql:3306)/
+      - DB_NAME=casdoor
+    depends_on:
+      - mysql
     restart: always
-    image: mysql:8.0.25
-    platform: linux/amd64
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=casdoor
     ports:
       - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: 123456
     volumes:
-      - /usr/local/docker/mysql:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
+    restart: always
+
+  traefik:
+    image: traefik:v3.0
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - ./traefik_casdoor_config.yaml:/etc/traefik/traefik.yaml
+      - ./traefik:/etc/traefik
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - CASDOOR_HOST=localhost
+      - YOUR_CLIENT_ID=casdoor-client-id
+      - YOUR_CLIENT_SECRET=casdoor-client-secret
+      - YOUR_SESSION_SECRET=casdoor-session-secret
+    depends_on:
+      - casdoor
+    restart: always
+
+volumes:
+  mysql-data:

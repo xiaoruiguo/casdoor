@@ -1,0 +1,197 @@
+# ============================================================
+# 项目结构可视化配置文件
+# ============================================================
+
+# 项目根目录结构
+root:
+  name: Casdoor
+  type: directory
+  children:
+    - name: .github
+      type: directory
+      description: GitHub 配置文件
+    - name: authz
+      type: directory
+      description: 授权相关功能
+    - name: captcha
+      type: directory
+      description: 验证码相关功能
+    - name: certificate
+      type: directory
+      description: 证书管理
+    - name: conf
+      type: directory
+      description: 配置文件
+    - name: controllers
+      type: directory
+      description: 控制器
+    - name: cred
+      type: directory
+      description: 凭证管理
+    - name: deployment
+      type: directory
+      description: 部署配置
+    - name: email
+      type: directory
+      description: 邮件服务
+    - name: faceId
+      type: directory
+      description: 人脸识别
+    - name: form
+      type: directory
+      description: 表单处理
+    - name: i18n
+      type: directory
+      description: 国际化
+    - name: idp
+      type: directory
+      description: 身份提供商
+    - name: idv
+      type: directory
+      description: 身份验证
+    - name: ip
+      type: directory
+      description: IP 相关功能
+    - name: ldap
+      type: directory
+      description: LDAP 集成
+    - name: log
+      type: directory
+      description: 日志管理
+    - name: mcp
+      type: directory
+      description: MCP 相关功能
+    - name: mcpself
+      type: directory
+      description: MCP 自身功能
+    - name: notification
+      type: directory
+      description: 通知系统
+    - name: object
+      type: directory
+      description: 核心业务逻辑
+    - name: pp
+      type: directory
+      description: 支付处理
+    - name: proxy
+      type: directory
+      description: 代理功能
+    - name: radius
+      type: directory
+      description: RADIUS 集成
+    - name: routers
+      type: directory
+      description: 路由配置
+    - name: rule
+      type: directory
+      description: 规则管理
+    - name: scim
+      type: directory
+      description: SCIM 协议支持
+    - name: service
+      type: directory
+      description: 服务层
+    - name: storage
+      type: directory
+      description: 存储服务
+    - name: swagger
+      type: directory
+      description: Swagger 文档
+    - name: sync
+      type: directory
+      description: 同步功能
+    - name: sync_v2
+      type: directory
+      description: 同步功能 v2
+    - name: util
+      type: directory
+      description: 工具函数
+    - name: web
+      type: directory
+      description: 前端代码
+    - name: xlsx
+      type: directory
+      description: Excel 处理
+    - name: main.go
+      type: file
+      description: 主入口文件
+    - name: go.mod
+      type: file
+      description: Go 模块文件
+    - name: Dockerfile
+      type: file
+      description: Docker 构建文件
+
+# 前端结构
+frontend:
+  name: Web
+  type: directory
+  path: web
+  children:
+    - name: public
+      type: directory
+      description: 静态资源
+    - name: src
+      type: directory
+      description: 前端源码
+      children:
+        - name: account
+          type: directory
+          description: 账户相关组件
+        - name: auth
+          type: directory
+          description: 认证相关组件
+        - name: backend
+          type: directory
+          description: 后端管理组件
+        - name: basic
+          type: directory
+          description: 基础组件
+        - name: common
+          type: directory
+          description: 通用组件
+        - name: locales
+          type: directory
+          description: 国际化文件
+        - name: pricing
+          type: directory
+          description: 定价相关组件
+        - name: provider
+          type: directory
+          description: 提供商相关组件
+        - name: table
+          type: directory
+          description: 表格组件
+        - name: App.js
+          type: file
+          description: 应用主组件
+        - name: index.js
+          type: file
+          description: 前端入口文件
+
+# 后端核心结构
+backend:
+  name: Backend
+  type: directory
+  children:
+    - name: controllers
+      type: directory
+      description: 控制器
+    - name: object
+      type: directory
+      description: 核心业务逻辑
+    - name: idp
+      type: directory
+      description: 身份提供商
+    - name: authz
+      type: directory
+      description: 授权相关功能
+    - name: routers
+      type: directory
+      description: 路由配置
+    - name: util
+      type: directory
+      description: 工具函数
+    - name: main.go
+      type: file
+      description: 主入口文件

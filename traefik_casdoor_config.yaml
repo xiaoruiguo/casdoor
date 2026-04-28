@@ -1,0 +1,357 @@
+# Traefik Configuration for Casdoor API Gateway
+# Version: 1.0
+# Date: 2026-04-27
+
+# Global configuration
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false
+
+# Entry points configuration
+entryPoints:
+  # HTTP entry point (redirect to HTTPS)
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+          permanent: true
+
+  # HTTPS entry point
+  websecure:
+    address: ":443"
+    http:
+      tls:
+        certResolver: letsencrypt
+        options: "modern"
+
+  # Dashboard entry point
+  dashboard:
+    address: ":8080"
+
+# Providers configuration
+providers:
+  # File provider for dynamic configuration
+  file:
+    directory: "./traefik/dynamic"
+    watch: true
+  # Environment variables provider
+  env:
+    prefix: "TRAEFIK_"
+
+# Certificates resolver
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: "admin@example.com"
+      storage: "./traefik/acme.json"
+      httpChallenge:
+        entryPoint: web
+
+# TLS options
+tls:
+  options:
+    modern:
+      minVersion: "VersionTLS13"
+      cipherSuites:
+        - "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
+        - "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+        - "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+        - "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+      curvePreferences:
+        - "CurveP521"
+        - "CurveP384"
+      sniStrict: true
+
+# Middleware configuration
+http:
+  middlewares:
+    # Authentication middleware for API
+    casdoor-auth:
+      oidc:
+        clientId: "${YOUR_CLIENT_ID:-casdoor-client-id}"
+        clientSecret: "${YOUR_CLIENT_SECRET:-casdoor-client-secret}"
+        issuer: "https://${CASDOOR_HOST:-localhost}"
+        redirectUri: "https://api.${CASDOOR_HOST:-localhost}/callback"
+        scope: "openid profile email"
+        session:
+          secret: "${YOUR_SESSION_SECRET:-casdoor-session-secret}"
+          cookie:
+            secure: true
+            httpOnly: true
+            sameSite: "strict"
+            maxAge: 86400
+
+    # CORS middleware
+    cors:
+      cors:
+        allowOrigins:
+          - "*"
+        allowMethods:
+          - "GET"
+          - "POST"
+          - "PUT"
+          - "DELETE"
+          - "OPTIONS"
+        allowHeaders:
+          - "Origin"
+          - "Content-Type"
+          - "Accept"
+          - "Authorization"
+          - "X-Requested-With"
+          - "X-Casdoor-API-Version"
+        allowCredentials: true
+        maxAge: 300
+
+    # Rate limiting middleware
+    rate-limit:
+      rateLimit:
+        average: 100
+        burst: 50
+        period: 1s
+        sourceCriterion:
+          ipStrategy:
+            depth: 1
+
+    # Security headers middleware
+    security-headers:
+      headers:
+        customResponseHeaders:
+          X-Content-Type-Options: "nosniff"
+          X-Frame-Options: "DENY"
+          X-XSS-Protection: "1; mode=block"
+          Content-Security-Policy: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'"
+          Strict-Transport-Security: "max-age=31536000; includeSubDomains; preload"
+          Referrer-Policy: "strict-origin-when-cross-origin"
+          Permissions-Policy: "geolocation=(), camera=(), microphone=()"
+          X-Casdoor-API-Version: "1.503.0"
+
+    # Compression middleware
+    compress:
+      compress:
+        excludedContentTypes:
+          - "text/event-stream"
+
+    # Circuit breaker middleware
+    circuit-breaker:
+      circuitBreaker:
+        expression: "NetworkErrorRatio() > 0.5"
+
+    # Retry middleware
+    retry:
+      retry:
+        attempts: 3
+        initialInterval: "100ms"
+        maxInterval: "5s"
+        exponentialBackoff: true
+
+    # API redirect middleware
+    api-redirect:
+      redirectRegex:
+        regex: "^https?://([^/]+)/(api.*)"
+        replacement: "https://api.$1/$2"
+        permanent: true
+
+# Services configuration
+http:
+  services:
+    # Casdoor backend service
+    casdoor-backend:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:8000"
+        healthCheck:
+          path: "/api/health"
+          interval: "30s"
+          timeout: "5s"
+          unhealthyThreshold: 3
+          healthyThreshold: 2
+
+    # Casdoor frontend service
+    casdoor-frontend:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:8000"
+
+# Routers configuration
+http:
+  routers:
+    # API router with versioning
+    casdoor-api:
+      rule: "Host(`api.${CASDOOR_HOST:-localhost}`) && PathPrefix(`/api`)"
+      entryPoints:
+        - websecure
+      middlewares:
+        - casdoor-auth
+        - cors
+        - rate-limit
+        - security-headers
+        - compress
+        - circuit-breaker
+        - retry
+      service: casdoor-backend
+      priority: 10
+
+    # Frontend router
+    casdoor-frontend:
+      rule: "Host(`${CASDOOR_HOST:-localhost}`)"
+      entryPoints:
+        - websecure
+      middlewares:
+        - cors
+        - security-headers
+        - compress
+      service: casdoor-frontend
+      priority: 5
+
+    # Callback router for OIDC
+    casdoor-callback:
+      rule: "Host(`api.${CASDOOR_HOST:-localhost}`) && Path(`/callback`)"
+      entryPoints:
+        - websecure
+      middlewares:
+        - security-headers
+        - compress
+      service: casdoor-backend
+      priority: 15
+
+    # Well-known endpoints router
+    casdoor-wellknown:
+      rule: "Host(`${CASDOOR_HOST:-localhost}`) && PathPrefix(`/.well-known`)"
+      entryPoints:
+        - websecure
+      middlewares:
+        - security-headers
+        - compress
+      service: casdoor-backend
+      priority: 8
+
+    # API redirect router (backward compatibility)
+    casdoor-api-redirect:
+      rule: "Host(`${CASDOOR_HOST:-localhost}`) && PathPrefix(`/api`)"
+      entryPoints:
+        - websecure
+      middlewares:
+        - api-redirect
+      service: casdoor-backend
+      priority: 9
+
+    # API version v1 router
+    casdoor-api-v1:
+      rule: "Host(`api.${CASDOOR_HOST:-localhost}`) && PathPrefix(`/api/v1`)"
+      entryPoints:
+        - websecure
+      middlewares:
+        - casdoor-auth
+        - cors
+        - rate-limit
+        - security-headers
+        - compress
+        - circuit-breaker
+        - retry
+      service: casdoor-backend
+      priority: 12
+
+    # Dashboard router (secure access)
+    traefik-dashboard:
+      rule: "Host(`dashboard.${CASDOOR_HOST:-localhost}`)"
+      entryPoints:
+        - dashboard
+      middlewares:
+        - security-headers
+      service: api@internal
+      priority: 20
+
+# Metrics configuration
+metrics:
+  prometheus:
+    addEntryPointsLabels: true
+    addServicesLabels: true
+    entryPoint: websecure
+    path: "/metrics"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "json"
+  filePath: "/var/log/traefik/traefik.log"
+  accessLog:
+    filePath: "/var/log/traefik/access.log"
+    format: "json"
+    fields:
+      defaultMode: "keep"
+      names:
+        ClientUsername: "drop"
+      headers:
+        defaultMode: "drop"
+        names:
+          User-Agent: "keep"
+          Authorization: "drop"
+          X-Forwarded-For: "keep"
+
+# API configuration
+api:
+  dashboard: true
+  insecure: false
+  debug: false
+
+# Ping configuration
+ping:
+  entryPoint: web
+  terminationDelay: 10s
+
+# ForwardAuth configuration (for additional authentication if needed)
+http:
+  middlewares:
+    forward-auth:
+      forwardAuth:
+        address: "http://casdoor:8000/api/userinfo"
+        trustForwardHeader: true
+        authResponseHeaders:
+          - "X-User-ID"
+          - "X-User-Name"
+          - "X-User-Email"
+
+# Custom error pages
+http:
+  middlewares:
+    custom-errors:
+      errors:
+        status:
+          - "400-599"
+        service: casdoor-backend
+        query: "/api/error/{status}"
+
+# TCP configuration for additional services (if needed)
+tcp:
+  routers:
+    casdoor-tcp:
+      entryPoints:
+        - websecure
+      rule: "HostSNI(`api.${CASDOOR_HOST:-localhost}`)"
+      service: casdoor-backend-tcp
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    casdoor-backend-tcp:
+      loadBalancer:
+        servers:
+          - address: "localhost:8000"
+
+# UDP configuration (if needed)
+udp:
+  routers:
+    casdoor-udp:
+      entryPoints:
+        - udp
+      rule: "IP(`127.0.0.1`)"
+      service: casdoor-backend-udp
+
+  services:
+    casdoor-backend-udp:
+      loadBalancer:
+        servers:
+          - address: "localhost:8000"

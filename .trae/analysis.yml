@@ -1,0 +1,114 @@
+# ============================================================
+# 代码分析配置文件
+# ============================================================
+
+# 代码结构分析
+structure:
+  backend:
+    directories:
+      - controllers
+      - object
+      - idp
+      - authz
+      - cert
+      - email
+      - notification
+      - storage
+      - util
+    main_files:
+      - main.go
+    config_files:
+      - conf/app.conf
+  frontend:
+    directories:
+      - web/src
+      - web/public
+    main_files:
+      - web/src/index.js
+      - web/src/App.js
+    config_files:
+      - web/package.json
+
+# 依赖分析
+dependencies:
+  backend:
+    file: go.mod
+    type: go
+  frontend:
+    file: web/package.json
+    type: npm
+
+# 关键功能分析
+features:
+  - name: 认证管理
+    description: 提供多种认证方式，包括用户名密码、OAuth、SAML、LDAP等
+    files:
+      - controllers/auth.go
+      - idp/
+      - object/token.go
+  - name: 用户管理
+    description: 用户信息管理，包括创建、编辑、删除用户，以及用户组管理
+    files:
+      - controllers/user.go
+      - object/user.go
+      - object/group.go
+  - name: 应用管理
+    description: 管理 OAuth 应用，包括应用配置、权限设置等
+    files:
+      - controllers/application.go
+      - object/application.go
+  - name: 组织管理
+    description: 管理组织，包括组织配置、成员管理等
+    files:
+      - controllers/organization.go
+      - object/organization.go
+  - name: 权限管理
+    description: 基于 Casbin 的权限控制
+    files:
+      - controllers/permission.go
+      - object/permission.go
+  - name: MFA 管理
+    description: 多因素认证管理
+    files:
+      - controllers/mfa.go
+      - object/mfa.go
+  - name: 证书管理
+    description: SSL 证书管理
+    files:
+      - controllers/cert.go
+      - object/cert.go
+  - name: 同步器
+    description: 用户和组织同步
+    files:
+      - controllers/syncer.go
+      - object/syncer.go
+  - name: 支付管理
+    description: 支付相关功能
+    files:
+      - controllers/payment.go
+      - object/payment.go
+      - pp/
+  - name: 通知管理
+    description: 通知系统
+    files:
+      - controllers/webhook.go
+      - object/webhook.go
+      - notification/
+
+# API 分析
+apis:
+  - prefix: /api
+    files:
+      - controllers/api.go
+      - routers/router.go
+
+# 安全分析
+security:
+  sensitive_files:
+    - conf/app.conf
+    - object/token_jwt_key.key
+  potential_issues:
+    - 密码存储
+    - JWT 令牌管理
+    - OAuth 流程
+    - SAML 配置

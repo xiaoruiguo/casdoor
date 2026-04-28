@@ -1,0 +1,71 @@
+# ============================================================
+# Casdoor 项目配置文件
+# ============================================================
+
+project:
+  name: Casdoor
+  description: 开源的身份认证和授权系统
+  version: 1.0.0
+  language: go
+  frontend:
+    framework: react
+    path: ./web
+  backend:
+    path: .
+    main_file: main.go
+
+# 构建配置
+build:
+  backend:
+    command: go build -o casdoor.exe .
+  frontend:
+    command: cd web && npm install && npm run build
+
+# 运行配置
+run:
+  backend:
+    command: ./casdoor.exe
+    port: 8000
+  frontend:
+    command: cd web && npm start
+    port: 3000
+
+# 测试配置
+test:
+  backend:
+    command: go test ./...
+  frontend:
+    command: cd web && npm test
+
+# 代码质量配置
+quality:
+  backend:
+    lint: go lint ./...
+  frontend:
+    lint: cd web && npm run lint
+
+# 部署配置
+deploy:
+  docker:
+    file: Dockerfile
+    image: casdoor/casdoor
+  kubernetes:
+    file: k8s.yaml
+
+# 监控配置
+monitoring:
+  prometheus:
+    enabled: true
+    endpoint: /metrics
+  logs:
+    path: ./logs
+
+# 安全配置
+security:
+  secret_files:
+    - ./conf/app.conf
+    - ./object/token_jwt_key.key
+  sensitive_patterns:
+    - "password"
+    - "secret"
+    - "token"

@@ -30,7 +30,8 @@ import {EmailMfaType, SmsMfaType, TotpMfaType} from "./auth/MfaSetupPage";
 
 const {Option} = Select;
 
-export const ServerUrl = "";
+// API 基础 URL，通过环境变量配置或默认值
+export const ServerUrl = process.env.REACT_APP_API_URL || "http://localhost";
 
 export const StaticBaseUrl = Conf.StaticBaseUrl;
 
@@ -723,7 +724,7 @@ export function initWebConfig() {
 export function getFullServerUrl() {
   let fullServerUrl = window.location.origin;
   if (fullServerUrl === "http://localhost:7001") {
-    fullServerUrl = "http://localhost:8000";
+    fullServerUrl = "http://localhost";
   }
   return fullServerUrl;
 }

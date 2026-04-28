@@ -1,0 +1,501 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1777202781624,
+  "projectRoot": "D:\\claude\\casdoor",
+  "techStack": {
+    "languages": [
+      {
+        "name": "Go",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "go.mod"
+        ]
+      },
+      {
+        "name": "C/C++",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "Makefile"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "go",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "make build",
+    "testCommand": "make test",
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "master",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "authz": {
+      "path": "authz",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1777202781537,
+      "keyFiles": [
+        "authz.go"
+      ]
+    },
+    "captcha": {
+      "path": "captcha",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1777202781537,
+      "keyFiles": [
+        "aliyun.go",
+        "default.go",
+        "geetest.go",
+        "hcaptcha.go",
+        "provider.go"
+      ]
+    },
+    "certificate": {
+      "path": "certificate",
+      "purpose": null,
+      "fileCount": 6,
+      "lastAccessed": 1777202781538,
+      "keyFiles": [
+        "account.go",
+        "account_test.go",
+        "conf.go",
+        "dns.go",
+        "ecc.go"
+      ]
+    },
+    "conf": {
+      "path": "conf",
+      "purpose": null,
+      "fileCount": 6,
+      "lastAccessed": 1777202781539,
+      "keyFiles": [
+        "app.conf",
+        "conf.go",
+        "conf_quota.go",
+        "conf_test.go",
+        "waf.conf"
+      ]
+    },
+    "controllers": {
+      "path": "controllers",
+      "purpose": "Controllers",
+      "fileCount": 72,
+      "lastAccessed": 1777202781540,
+      "keyFiles": [
+        "account.go",
+        "adapter.go",
+        "agent.go",
+        "application.go",
+        "auth.go"
+      ]
+    },
+    "cred": {
+      "path": "cred",
+      "purpose": null,
+      "fileCount": 10,
+      "lastAccessed": 1777202781541,
+      "keyFiles": [
+        "argon2id.go",
+        "bcrypt.go",
+        "manager.go",
+        "md5-user-salt.go",
+        "pbkdf2-salt.go"
+      ]
+    },
+    "deployment": {
+      "path": "deployment",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1777202781541,
+      "keyFiles": [
+        "deploy.go",
+        "deploy_test.go"
+      ]
+    },
+    "email": {
+      "path": "email",
+      "purpose": null,
+      "fileCount": 6,
+      "lastAccessed": 1777202781542,
+      "keyFiles": [
+        "azure_acs.go",
+        "custom_http.go",
+        "provider.go",
+        "resend.go",
+        "sendgrid.go"
+      ]
+    },
+    "faceId": {
+      "path": "faceId",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1777202781543,
+      "keyFiles": [
+        "aliyun.go",
+        "provider.go"
+      ]
+    },
+    "form": {
+      "path": "form",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1777202781543,
+      "keyFiles": [
+        "auth.go",
+        "verification.go"
+      ]
+    },
+    "i18n": {
+      "path": "i18n",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1777202781544,
+      "keyFiles": [
+        "deduplicate_test.go",
+        "generate.go",
+        "generate_test.go",
+        "util.go"
+      ]
+    },
+    "idp": {
+      "path": "idp",
+      "purpose": null,
+      "fileCount": 33,
+      "lastAccessed": 1777202781544,
+      "keyFiles": [
+        "adfs.go",
+        "alipay.go",
+        "azuread_b2c.go",
+        "baidu.go",
+        "bilibili.go"
+      ]
+    },
+    "idv": {
+      "path": "idv",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1777202781545,
+      "keyFiles": [
+        "aliyun.go",
+        "jumio.go",
+        "provider.go"
+      ]
+    },
+    "ip": {
+      "path": "ip",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1777202781545,
+      "keyFiles": [
+        "ip.go",
+        "ip17mon.go"
+      ]
+    },
+    "ldap": {
+      "path": "ldap",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1777202781546,
+      "keyFiles": [
+        "server.go",
+        "util.go",
+        "util_test.go"
+      ]
+    },
+    "log": {
+      "path": "log",
+      "purpose": null,
+      "fileCount": 9,
+      "lastAccessed": 1777202781546,
+      "keyFiles": [
+        "agent_openclaw.go",
+        "casdoor_permission.go",
+        "provider.go",
+        "selinux_log.go",
+        "selinux_log_linux.go"
+      ]
+    },
+    "mcp": {
+      "path": "mcp",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1777202781546,
+      "keyFiles": [
+        "util.go"
+      ]
+    },
+    "mcpself": {
+      "path": "mcpself",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1777202781547,
+      "keyFiles": [
+        "application.go",
+        "auth.go",
+        "base.go",
+        "permission.go"
+      ]
+    },
+    "notification": {
+      "path": "notification",
+      "purpose": null,
+      "fileCount": 21,
+      "lastAccessed": 1777202781547,
+      "keyFiles": [
+        "bark.go",
+        "cucloud.go",
+        "custom_http.go",
+        "dingtalk.go",
+        "discord.go"
+      ]
+    },
+    "object": {
+      "path": "object",
+      "purpose": null,
+      "fileCount": 147,
+      "lastAccessed": 1777202781548,
+      "keyFiles": [
+        "adapter.go",
+        "adapter_safe.go",
+        "agent.go",
+        "application.go",
+        "application_item.go"
+      ]
+    },
+    "openspec": {
+      "path": "openspec",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1777202781548,
+      "keyFiles": [
+        "config.yaml"
+      ]
+    },
+    "pp": {
+      "path": "pp",
+      "purpose": null,
+      "fileCount": 15,
+      "lastAccessed": 1777202781549,
+      "keyFiles": [
+        "adyen.go",
+        "airwallex.go",
+        "alipay.go",
+        "balance.go",
+        "dummy.go"
+      ]
+    },
+    "proxy": {
+      "path": "proxy",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1777202781549,
+      "keyFiles": [
+        "proxy.go"
+      ]
+    },
+    "radius": {
+      "path": "radius",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1777202781550,
+      "keyFiles": [
+        "server.go",
+        "server_test.go",
+        "util.go"
+      ]
+    },
+    "routers": {
+      "path": "routers",
+      "purpose": null,
+      "fileCount": 13,
+      "lastAccessed": 1777202781550,
+      "keyFiles": [
+        "authz_filter.go",
+        "auto_signin_filter.go",
+        "base.go",
+        "cors_filter.go",
+        "field_validation_filter.go"
+      ]
+    },
+    "rule": {
+      "path": "rule",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1777202781551,
+      "keyFiles": [
+        "rule.go",
+        "rule_compound.go",
+        "rule_ip.go",
+        "rule_ip_rate.go",
+        "rule_ip_rate_test.go"
+      ]
+    },
+    "scim": {
+      "path": "scim",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1777202781551,
+      "keyFiles": [
+        "server.go",
+        "user_handler.go",
+        "util.go"
+      ]
+    },
+    "service": {
+      "path": "service",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1777202781552,
+      "keyFiles": [
+        "oauth.go",
+        "proxy.go",
+        "util.go"
+      ]
+    },
+    "storage": {
+      "path": "storage",
+      "purpose": null,
+      "fileCount": 12,
+      "lastAccessed": 1777202781552,
+      "keyFiles": [
+        "aliyun_oss.go",
+        "aws_s3.go",
+        "azure.go",
+        "casdoor.go",
+        "cucloud_oss.go"
+      ]
+    },
+    "swagger": {
+      "path": "swagger",
+      "purpose": null,
+      "fileCount": 18,
+      "lastAccessed": 1777202781553,
+      "keyFiles": [
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "index.html",
+        "oauth2-redirect.html",
+        "swagger-ui-bundle.js"
+      ]
+    },
+    "sync": {
+      "path": "sync",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1777202781553,
+      "keyFiles": [
+        "database.go",
+        "database_canal.go",
+        "sync.go",
+        "sync_test.go",
+        "util.go"
+      ]
+    },
+    "sync_v2": {
+      "path": "sync_v2",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1777202781554,
+      "keyFiles": [
+        "cmd_test.go",
+        "db.go",
+        "master.go",
+        "slave.go",
+        "table_test.go"
+      ]
+    },
+    "util": {
+      "path": "util",
+      "purpose": null,
+      "fileCount": 25,
+      "lastAccessed": 1777202781554,
+      "keyFiles": [
+        "casbin.go",
+        "cert.go",
+        "cookie.go",
+        "crypto.go",
+        "json.go"
+      ]
+    },
+    "web": {
+      "path": "web",
+      "purpose": null,
+      "fileCount": 12,
+      "lastAccessed": 1777202781555,
+      "keyFiles": [
+        "babel.config.json",
+        "craco.config.js",
+        "crowdin.yml",
+        "cypress.config.js",
+        "mv.js"
+      ]
+    },
+    "xlsx": {
+      "path": "xlsx",
+      "purpose": null,
+      "fileCount": 6,
+      "lastAccessed": 1777202781555,
+      "keyFiles": [
+        "group_test.xlsx",
+        "permission_test.xlsx",
+        "role_test.xlsx",
+        "user_test.xlsx",
+        "xlsx.go"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 4,
+      "lastAccessed": 1777247737932,
+      "type": "file"
+    },
+    {
+      "path": "web\\package.json",
+      "accessCount": 3,
+      "lastAccessed": 1777247279200,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 2,
+      "lastAccessed": 1777247088562,
+      "type": "file"
+    },
+    {
+      "path": "Makefile",
+      "accessCount": 1,
+      "lastAccessed": 1777203302245,
+      "type": "file"
+    },
+    {
+      "path": "go.mod",
+      "accessCount": 1,
+      "lastAccessed": 1777203585077,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
