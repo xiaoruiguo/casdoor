@@ -1,3 +1,16 @@
+---
+name: merge-upstream
+description: "Merges upstream (original open-source project) changes into origin (fork project). Invoke when user wants to sync/merge upstream updates, pull latest from upstream, or resolve merge conflicts from upstream."
+version: 1.0.0
+author: "Xiaoruiguo"
+license: MIT
+platforms: [linux, macos, windows]
+metadata:
+  hermes:
+    tags: [GitHub, Git, gh-cli]
+    related_skills: []
+---
+
 ***
 
 name: "merge-upstream"
