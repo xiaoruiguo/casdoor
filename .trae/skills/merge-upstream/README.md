@@ -428,3 +428,15 @@ export MERGE_GIT_AUTH_METHOD=ssh
   - SSH 密钥已配置（`~/.ssh/id_*` + GitHub SSH Key）
   - 仓库为公开仓库且仅需读取（`GIT_AUTH_METHOD=none`）
 
+使用如下参数，测试.
+
+MERGE_WORK_DIR=D:\test2\casdoor
+#/opt/data/workspace/
+MERGE_UPSTREAM_REPO=https://github.com/casdoor/casdoor.git
+MERGE_FORK_REPO=https://github.com/xiaoruiguo/casdoor.git
+MERGE_FORK_BRANCH=master
+MERGE_UPSTREAM_BRANCH=master
+MERGE_STRATEGY=merge
+MERGE_VERBOSE=true
+GITHUB_TOKEN=**
+MERGE_RETRY_COUNT=10
