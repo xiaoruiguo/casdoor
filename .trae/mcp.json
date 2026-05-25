@@ -5,10 +5,8 @@
       "args": [
         "-y",
         "@fangjunjie/ssh-mcp-server",
-        "--host", "127.0.0.1",
-        "--port", "2201",
-        "--username", "vagrant",
-        "--privateKey", "D:\\all_labs\\prometheus\\.vagrant\\machines\\nomad1\\virtualbox\\private_key"
+        "--config-file",
+        "ssh-config.json"
       ]
     }
   }

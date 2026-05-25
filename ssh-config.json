@@ -1,0 +1,26 @@
+{
+  "nomad1": {
+    "host": "127.0.0.1",
+    "port": 2201,
+    "username": "vagrant",
+    "privateKey": "D:\\all_labs\\prometheus\\.vagrant\\machines\\nomad1\\virtualbox\\private_key"
+  },
+  "nomad2": {
+    "host": "127.0.0.1",
+    "port": 2202,
+    "username": "vagrant",
+    "privateKey": "D:\\all_labs\\prometheus\\.vagrant\\machines\\nomad2\\virtualbox\\private_key"
+  },
+  "nomad3": {
+    "host": "127.0.0.1",
+    "port": 2203,
+    "username": "vagrant",
+    "privateKey": "D:\\all_labs\\prometheus\\.vagrant\\machines\\nomad3\\virtualbox\\private_key"
+  },
+  "nomad4": {
+    "host": "127.0.0.1",
+    "port": 2204,
+    "username": "vagrant",
+    "privateKey": "D:\\all_labs\\prometheus\\.vagrant\\machines\\nomad4\\virtualbox\\private_key"
+  }
+}

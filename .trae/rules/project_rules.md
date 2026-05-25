@@ -1,0 +1,5 @@
+# 远程服务器角色定位
+远程服务器nomad1,作为数据库服务器，运行数据库
+远程服务器nomad2,作为Casdoor后端服务器，运行Casdoor后端
+远程服务器nomad3,作为Casdoor前端服务器，运行Casdoor前端
+远程服务器nomad4,作为CasdoorAPI网关服务器，运行Traefik网关
