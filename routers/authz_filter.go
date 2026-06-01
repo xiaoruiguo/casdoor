@@ -335,6 +335,11 @@ func ApiFilter(ctx *context.Context) {
 
 	method := ctx.Request.Method
 	urlPath := getUrlPath(ctx)
+
+	if strings.HasPrefix(urlPath, "/swagger") {
+		return
+	}
+
 	extraInfo := getExtraInfo(ctx, urlPath)
 
 	objOwner, objName := "", ""

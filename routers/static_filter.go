@@ -142,7 +142,7 @@ func StaticFilter(ctx *context.Context) {
 		http.ServeContent(ctx.ResponseWriter, ctx.Request, "acme-challenge", time.Now(), strings.NewReader("content"))
 	}
 
-	if strings.HasPrefix(urlPath, "/api/") || strings.HasPrefix(urlPath, "/.well-known/") {
+	if strings.HasPrefix(urlPath, "/api/") || strings.HasPrefix(urlPath, "/.well-known/") || strings.HasPrefix(urlPath, "/swagger") {
 		return
 	}
 	if serveAuthCallbackHandlerScript(ctx) {

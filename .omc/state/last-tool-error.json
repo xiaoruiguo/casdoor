@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"node \\\"$PLUGIN_ROOT/skills/understand/scan-project.mjs\\\" \\\"D:\\\\claude\\\\casdoor\\\" \\\"D:\\\\claude\\\\casdoor\\\\.understand-anything\\\\tmp\\\\ua-scan-files.json\\\"\",\"timeout\":60000,\"description\":\"Run ...",
+  "error": "Exit code 1\nnode:internal/modules/cjs/loader:1459\r\n  throw err;\r\n  ^\r\n\r\nError: Cannot find module 'C:\\Program Files\\Git\\skills\\understand\\scan-project.mjs'\r\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)\r\n    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)\r\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)\r\n    at Module._load (node:internal/modules/cjs/loader:1242:25)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:...",
+  "timestamp": "2026-06-01T06:36:03.314Z",
+  "retry_count": 1
+}
