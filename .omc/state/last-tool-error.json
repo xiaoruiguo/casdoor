@@ -1,7 +1,7 @@
 {
   "tool_name": "Read",
-  "tool_input_preview": "{\"file_path\":\"D:\\\\claude\\\\casdoor\\\\.understand-anything\\\\knowledge-graph.json\"}",
+  "tool_input_preview": "{\"file_path\":\"D:\\\\claude\\\\casdoor\\\\.understand-anything\\\\meta.json\"}",
   "error": "File does not exist. Note: your current working directory is D:\\claude\\casdoor.",
-  "timestamp": "2026-06-01T04:38:09.578Z",
+  "timestamp": "2026-06-01T04:42:01.523Z",
   "retry_count": 1
 }

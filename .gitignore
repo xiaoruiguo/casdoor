@@ -39,3 +39,4 @@ casdoor-server-linux
 # include helm-chart
 !manifests/casdoor
 casdoor-server-linux
+.mcp.json
