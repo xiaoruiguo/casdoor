@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1777202781624,
-  "projectRoot": "D:\\claude\\casdoor",
+  "lastScanned": 1780195474843,
+  "projectRoot": "d:\\claude\\casdoor",
   "techStack": {
     "languages": [
       {
@@ -53,7 +53,7 @@
       "path": "authz",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1777202781537,
+      "lastAccessed": 1780195474471,
       "keyFiles": [
         "authz.go"
       ]
@@ -62,7 +62,7 @@
       "path": "captcha",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1777202781537,
+      "lastAccessed": 1780195474647,
       "keyFiles": [
         "aliyun.go",
         "default.go",
@@ -75,7 +75,7 @@
       "path": "certificate",
       "purpose": null,
       "fileCount": 6,
-      "lastAccessed": 1777202781538,
+      "lastAccessed": 1780195474647,
       "keyFiles": [
         "account.go",
         "account_test.go",
@@ -88,7 +88,7 @@
       "path": "conf",
       "purpose": null,
       "fileCount": 6,
-      "lastAccessed": 1777202781539,
+      "lastAccessed": 1780195474648,
       "keyFiles": [
         "app.conf",
         "conf.go",
@@ -101,7 +101,7 @@
       "path": "controllers",
       "purpose": "Controllers",
       "fileCount": 72,
-      "lastAccessed": 1777202781540,
+      "lastAccessed": 1780195474648,
       "keyFiles": [
         "account.go",
         "adapter.go",
@@ -114,7 +114,7 @@
       "path": "cred",
       "purpose": null,
       "fileCount": 10,
-      "lastAccessed": 1777202781541,
+      "lastAccessed": 1780195474648,
       "keyFiles": [
         "argon2id.go",
         "bcrypt.go",
@@ -127,7 +127,7 @@
       "path": "deployment",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1777202781541,
+      "lastAccessed": 1780195474649,
       "keyFiles": [
         "deploy.go",
         "deploy_test.go"
@@ -137,7 +137,7 @@
       "path": "email",
       "purpose": null,
       "fileCount": 6,
-      "lastAccessed": 1777202781542,
+      "lastAccessed": 1780195474649,
       "keyFiles": [
         "azure_acs.go",
         "custom_http.go",
@@ -150,7 +150,7 @@
       "path": "faceId",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1777202781543,
+      "lastAccessed": 1780195474649,
       "keyFiles": [
         "aliyun.go",
         "provider.go"
@@ -160,17 +160,26 @@
       "path": "form",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1777202781543,
+      "lastAccessed": 1780195474650,
       "keyFiles": [
         "auth.go",
         "verification.go"
+      ]
+    },
+    "hermes": {
+      "path": "hermes",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1780195474650,
+      "keyFiles": [
+        "SOUL.md"
       ]
     },
     "i18n": {
       "path": "i18n",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1777202781544,
+      "lastAccessed": 1780195474650,
       "keyFiles": [
         "deduplicate_test.go",
         "generate.go",
@@ -182,7 +191,7 @@
       "path": "idp",
       "purpose": null,
       "fileCount": 33,
-      "lastAccessed": 1777202781544,
+      "lastAccessed": 1780195474651,
       "keyFiles": [
         "adfs.go",
         "alipay.go",
@@ -195,7 +204,7 @@
       "path": "idv",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1777202781545,
+      "lastAccessed": 1780195474651,
       "keyFiles": [
         "aliyun.go",
         "jumio.go",
@@ -206,7 +215,7 @@
       "path": "ip",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1777202781545,
+      "lastAccessed": 1780195474651,
       "keyFiles": [
         "ip.go",
         "ip17mon.go"
@@ -216,7 +225,7 @@
       "path": "ldap",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1777202781546,
+      "lastAccessed": 1780195474652,
       "keyFiles": [
         "server.go",
         "util.go",
@@ -227,7 +236,7 @@
       "path": "log",
       "purpose": null,
       "fileCount": 9,
-      "lastAccessed": 1777202781546,
+      "lastAccessed": 1780195474653,
       "keyFiles": [
         "agent_openclaw.go",
         "casdoor_permission.go",
@@ -236,11 +245,21 @@
         "selinux_log_linux.go"
       ]
     },
+    "logs": {
+      "path": "logs",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1780195474653,
+      "keyFiles": [
+        "casdoor.2026-04-28.001.log",
+        "casdoor.log"
+      ]
+    },
     "mcp": {
       "path": "mcp",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1777202781546,
+      "lastAccessed": 1780195474654,
       "keyFiles": [
         "util.go"
       ]
@@ -249,7 +268,7 @@
       "path": "mcpself",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1777202781547,
+      "lastAccessed": 1780195474654,
       "keyFiles": [
         "application.go",
         "auth.go",
@@ -261,7 +280,7 @@
       "path": "notification",
       "purpose": null,
       "fileCount": 21,
-      "lastAccessed": 1777202781547,
+      "lastAccessed": 1780195474654,
       "keyFiles": [
         "bark.go",
         "cucloud.go",
@@ -274,7 +293,7 @@
       "path": "object",
       "purpose": null,
       "fileCount": 147,
-      "lastAccessed": 1777202781548,
+      "lastAccessed": 1780195474655,
       "keyFiles": [
         "adapter.go",
         "adapter_safe.go",
@@ -287,7 +306,7 @@
       "path": "openspec",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1777202781548,
+      "lastAccessed": 1780195474655,
       "keyFiles": [
         "config.yaml"
       ]
@@ -296,7 +315,7 @@
       "path": "pp",
       "purpose": null,
       "fileCount": 15,
-      "lastAccessed": 1777202781549,
+      "lastAccessed": 1780195474656,
       "keyFiles": [
         "adyen.go",
         "airwallex.go",
@@ -309,7 +328,7 @@
       "path": "proxy",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1777202781549,
+      "lastAccessed": 1780195474656,
       "keyFiles": [
         "proxy.go"
       ]
@@ -318,7 +337,7 @@
       "path": "radius",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1777202781550,
+      "lastAccessed": 1780195474658,
       "keyFiles": [
         "server.go",
         "server_test.go",
@@ -329,7 +348,7 @@
       "path": "routers",
       "purpose": null,
       "fileCount": 13,
-      "lastAccessed": 1777202781550,
+      "lastAccessed": 1780195474660,
       "keyFiles": [
         "authz_filter.go",
         "auto_signin_filter.go",
@@ -342,7 +361,7 @@
       "path": "rule",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1777202781551,
+      "lastAccessed": 1780195474663,
       "keyFiles": [
         "rule.go",
         "rule_compound.go",
@@ -355,7 +374,7 @@
       "path": "scim",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1777202781551,
+      "lastAccessed": 1780195474665,
       "keyFiles": [
         "server.go",
         "user_handler.go",
@@ -366,7 +385,7 @@
       "path": "service",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1777202781552,
+      "lastAccessed": 1780195474667,
       "keyFiles": [
         "oauth.go",
         "proxy.go",
@@ -377,7 +396,7 @@
       "path": "storage",
       "purpose": null,
       "fileCount": 12,
-      "lastAccessed": 1777202781552,
+      "lastAccessed": 1780195474668,
       "keyFiles": [
         "aliyun_oss.go",
         "aws_s3.go",
@@ -390,7 +409,7 @@
       "path": "swagger",
       "purpose": null,
       "fileCount": 18,
-      "lastAccessed": 1777202781553,
+      "lastAccessed": 1780195474668,
       "keyFiles": [
         "favicon-16x16.png",
         "favicon-32x32.png",
@@ -403,7 +422,7 @@
       "path": "sync",
       "purpose": null,
       "fileCount": 5,
-      "lastAccessed": 1777202781553,
+      "lastAccessed": 1780195474669,
       "keyFiles": [
         "database.go",
         "database_canal.go",
@@ -416,7 +435,7 @@
       "path": "sync_v2",
       "purpose": null,
       "fileCount": 5,
-      "lastAccessed": 1777202781554,
+      "lastAccessed": 1780195474669,
       "keyFiles": [
         "cmd_test.go",
         "db.go",
@@ -425,11 +444,25 @@
         "table_test.go"
       ]
     },
+    "tmp": {
+      "path": "tmp",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1780195474671,
+      "keyFiles": []
+    },
+    "traefik": {
+      "path": "traefik",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1780195474671,
+      "keyFiles": []
+    },
     "util": {
       "path": "util",
       "purpose": null,
       "fileCount": 25,
-      "lastAccessed": 1777202781554,
+      "lastAccessed": 1780195474672,
       "keyFiles": [
         "casbin.go",
         "cert.go",
@@ -441,8 +474,8 @@
     "web": {
       "path": "web",
       "purpose": null,
-      "fileCount": 12,
-      "lastAccessed": 1777202781555,
+      "fileCount": 14,
+      "lastAccessed": 1780195474672,
       "keyFiles": [
         "babel.config.json",
         "craco.config.js",
@@ -451,17 +484,40 @@
         "mv.js"
       ]
     },
+    "win_scripts": {
+      "path": "win_scripts",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1780195474673,
+      "keyFiles": [
+        "README.md",
+        "update.bat",
+        "update.ps1",
+        "update_optimized.ps1"
+      ]
+    },
     "xlsx": {
       "path": "xlsx",
       "purpose": null,
       "fileCount": 6,
-      "lastAccessed": 1777202781555,
+      "lastAccessed": 1780195474673,
       "keyFiles": [
         "group_test.xlsx",
         "permission_test.xlsx",
         "role_test.xlsx",
         "user_test.xlsx",
         "xlsx.go"
+      ]
+    },
+    "web\\build": {
+      "path": "web\\build",
+      "purpose": "Build output",
+      "fileCount": 4,
+      "lastAccessed": 1780195474682,
+      "keyFiles": [
+        "asset-manifest.json",
+        "AuthCallbackHandler.js",
+        "index.html"
       ]
     }
   },
@@ -482,6 +538,18 @@
       "path": "README.md",
       "accessCount": 2,
       "lastAccessed": 1777247088562,
+      "type": "file"
+    },
+    {
+      "path": "postgreqsql.conn.md",
+      "accessCount": 2,
+      "lastAccessed": 1779849272706,
+      "type": "file"
+    },
+    {
+      "path": "agency-agents-casdoor.md",
+      "accessCount": 2,
+      "lastAccessed": 1780284169025,
       "type": "file"
     },
     {

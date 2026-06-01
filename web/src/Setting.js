@@ -31,7 +31,7 @@ import {EmailMfaType, SmsMfaType, TotpMfaType} from "./auth/MfaSetupPage";
 const {Option} = Select;
 
 // API 基础 URL，通过环境变量配置或默认值
-export const ServerUrl = process.env.REACT_APP_API_URL || "http://localhost";
+export const ServerUrl = process.env.REACT_APP_API_URL || (typeof window !== "undefined" ? window.location.origin : "");
 
 export const StaticBaseUrl = Conf.StaticBaseUrl;
 
